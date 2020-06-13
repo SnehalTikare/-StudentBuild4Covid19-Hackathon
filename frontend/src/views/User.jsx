@@ -23,16 +23,9 @@ import axios from "axios";
 // reactstrap components
 import {
   Button,
-  Card,
-  CardHeader,
-  CardBody,
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter,
-  CardFooter,
-  CardTitle,
-  Dropdown,
   FormGroup,
   Input,
   Form,
@@ -40,25 +33,19 @@ import {
   Col,
 } from "reactstrap";
 
-class Volunteer extends React.Component {
+class User extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       modal1: false,
       modal2: false,
-      firstname: "",
-      lastname: "",
-      primarycontact: "",
-      secondarycontact: "",
       useremail: "",
-      address: "",
-      username: "",
       password: "",
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.volunteerRegistration = this.volunteerRegistration.bind(this);
-    this.volunteerLogin = this.volunteerLogin.bind(this);
+    this.userRegistration = this.userRegistration.bind(this);
+    this.userLogin = this.userLogin.bind(this);
     this.toggle1 = this.toggle1.bind(this);
     this.toggle2 = this.toggle2.bind(this);
   }
@@ -86,22 +73,16 @@ class Volunteer extends React.Component {
       });
   } */
 
-  volunteerRegistration = (e) => {
-    var headers = new Headers();
+  userRegistration = (e) => {
+    //var headers = new Headers();
     e.preventDefault();
     console.log("Console", this.state);
 
     var encodedPassword = btoa(this.state.password);
     var data = {
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-      primary_contact: this.state.primarycontact,
-      secondary_contact: this.state.secondarycontact,
-      email: this.state.email,
-      address: this.state.address,
-      username: this.state.username,
+      useremail: this.state.email,
       pwd: encodedPassword,
-      role: "volunteer",
+      role: "user",
     };
 
     console.log("data : ", data);
@@ -112,7 +93,7 @@ class Volunteer extends React.Component {
       })
       .then((response) => {
         console.log("response :", response);
-        if (response.status == 200) {
+        if (response.status === 200) {
           console.log("ok response");
           this.toggle1();
           alert("Successfully registered");
@@ -125,15 +106,15 @@ class Volunteer extends React.Component {
       });
   };
 
-  volunteerLogin = (e) => {
-    var headers = new Headers();
+  userLogin = (e) => {
+    //var headers = new Headers();
     e.preventDefault();
     console.log("Console", this.state);
 
     var data = {
       username: this.state.username,
       pwd: btoa(this.state.password),
-      role: "volunteer",
+      role: "user",
     };
 
     console.log("data : ", data);
@@ -176,16 +157,7 @@ class Volunteer extends React.Component {
     });
   }
   render() {
-    const {
-      firstname,
-      lastname,
-      useremail,
-      primarycontact,
-      secondarycontact,
-      address,
-      username,
-      password,
-    } = this.state;
+    const { useremail, username, password } = this.state;
     return (
       <>
         <div className="content">
@@ -204,14 +176,14 @@ class Volunteer extends React.Component {
                   User Registration
                 </ModalHeader>
                 <ModalBody>
-                  <Form onSubmit={this.volunteerRegistration.bind(this)}>
+                  <Form onSubmit={this.userRegistration.bind(this)}>
                     <Row>
                       <Col className="pl-1" md="6" sm="12">
                         <FormGroup>
                           <label>User Email</label>
                           <Input
                             type="text"
-                            name="username"
+                            name="useremail"
                             value={useremail}
                             onChange={this.handleInputChange}
                           />
@@ -236,7 +208,7 @@ class Volunteer extends React.Component {
                           className="btn-round"
                           color="primary"
                           type="submit"
-                          onClick={this.volunteerRegistration}
+                          onClick={this.userRegistration}
                         >
                           Register
                         </Button>
@@ -258,14 +230,14 @@ class Volunteer extends React.Component {
               >
                 <ModalHeader toggle={this.toggle2}>User Login</ModalHeader>
                 <ModalBody>
-                  <Form onSubmit={this.volunteerLogin.bind(this)}>
+                  <Form onSubmit={this.userLogin.bind(this)}>
                     <Row>
                       <Col className="pl-1" md="6" sm="12">
                         <FormGroup>
                           <label>User Email</label>
                           <Input
                             type="text"
-                            name="username"
+                            name="useremail"
                             value={username}
                             onChange={this.handleInputChange}
                           />
@@ -290,7 +262,7 @@ class Volunteer extends React.Component {
                           className="btn-round"
                           color="primary"
                           type="submit"
-                          onClick={this.volunteerLogin}
+                          onClick={this.userLogin}
                         >
                           Login
                         </Button>
@@ -307,4 +279,4 @@ class Volunteer extends React.Component {
   }
 }
 
-export default Volunteer;
+export default User;

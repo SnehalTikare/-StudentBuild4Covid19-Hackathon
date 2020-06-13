@@ -17,7 +17,7 @@
 
 */
 import React from "react";
-import axios from 'axios';
+import axios from "axios";
 
 // reactstrap components
 import {
@@ -32,31 +32,30 @@ import {
   Form,
   Input,
   Row,
-  Col
+  Col,
 } from "reactstrap";
 
 class User extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name:'',
-      contact:'',
-      email:'',
-      clothingDesc:'',
-      foodDesc:'',
-      medicineDesc:'',
-      otherDesc:'',
+      name: "",
+      contact: "",
+      email: "",
+      clothingDesc: "",
+      foodDesc: "",
+      medicineDesc: "",
+      otherDesc: "",
       numberOfClothes: 0,
       numberOfFood: 0,
       numberOfMedicine: 0,
       numberOfOther: 0,
-
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.submitDonation = this.submitDonation.bind(this);
   }
-  
+
   /* onSubmit = (e) => {
     e.preventDefault();
     // get our form data out of state
@@ -73,83 +72,99 @@ class User extends React.Component {
   submitDonation = (e) => {
     var headers = new Headers();
     e.preventDefault();
-    console.log("",this.state.numberOfClothes,this.state.numberOfFood, this.state.numberOfMedicine, this.state.numberOfOther)
-    var arrayClothes={};
-    var arrayFood={};
-    var arrayMedicine={};
-    var arrayOthers={};
-    if (this.state.numberOfClothes!=0){
-      arrayClothes={
-        "category":"clothes",
-        "quantity":this.state.numberOfClothes,
-        "description": this.state.clothingDesc
-      }
+    console.log(
+      "",
+      this.state.numberOfClothes,
+      this.state.numberOfFood,
+      this.state.numberOfMedicine,
+      this.state.numberOfOther
+    );
+    var arrayClothes = {};
+    var arrayFood = {};
+    var arrayMedicine = {};
+    var arrayOthers = {};
+    if (this.state.numberOfClothes != 0) {
+      arrayClothes = {
+        category: "clothes",
+        quantity: this.state.numberOfClothes,
+        description: this.state.clothingDesc,
+      };
     }
-    if (this.state.numberOfFood!=0){
-      arrayFood={
-        "category":"food",
-        "quantity":this.state.numberOfFood,
-        "description": this.state.foodDesc
-      }
+    if (this.state.numberOfFood != 0) {
+      arrayFood = {
+        category: "food",
+        quantity: this.state.numberOfFood,
+        description: this.state.foodDesc,
+      };
     }
-    if (this.state.numberOfMedicine!=0){
-      arrayMedicine={
-        "category":"health-care",
-        "quantity":this.state.numberOfMedicine,
-        "description": this.state.medicineDesc
-      }
+    if (this.state.numberOfMedicine != 0) {
+      arrayMedicine = {
+        category: "health-care",
+        quantity: this.state.numberOfMedicine,
+        description: this.state.medicineDesc,
+      };
     }
-    if (this.state.numberOfOther!=0){
-      arrayOthers={
-        "category":"other",
-        "quantity":this.state.numberOfOther,
-        "description": this.state.otherDesc
-      }
-    }
-    
-    var data = {
-        email : this.state.email, 
-        name : this.state.name,
-        contact : this.state.contact,
-        items: [arrayClothes,arrayFood,arrayMedicine,arrayOthers]
+    if (this.state.numberOfOther != 0) {
+      arrayOthers = {
+        category: "other",
+        quantity: this.state.numberOfOther,
+        description: this.state.otherDesc,
+      };
     }
 
-    console.log("data : ",  data);
+    var data = {
+      email: this.state.email,
+      name: this.state.name,
+      contact: this.state.contact,
+      items: [arrayClothes, arrayFood, arrayMedicine, arrayOthers],
+    };
+
+    console.log("data : ", data);
     //axios.defaults.withCredentials = true;
-    axios.post('http://10.225.125.24:5000/donate', data, { headers: { 'Content-Type': 'application/json'}})
-        .then(response => { 
-        console.log("response :", response)
-        if(response.status == 200)
-        {
+    axios
+      .post("http://10.225.125.24:5000/donate", data, {
+        headers: { "Content-Type": "application/json" },
+      })
+      .then((response) => {
+        console.log("response :", response);
+        if (response.status == 200) {
           console.log("ok response");
         }
-            
-            
-            //swal("User logged in Successfully!", "", "success");
-    })
-    .catch(error => {
-        console.log(error)
-    });
-}
 
+        //swal("User logged in Successfully!", "", "success");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
- handleInputChange(event) {
+  handleInputChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
   render() {
-    const { name, email, contact, clothingDesc, medicineDesc, foodDesc, numberOfClothes, numberOfFood, numberOfMedicine, numberOfOther } = this.state;
+    const {
+      name,
+      email,
+      contact,
+      clothingDesc,
+      medicineDesc,
+      foodDesc,
+      numberOfClothes,
+      numberOfFood,
+      numberOfMedicine,
+      numberOfOther,
+    } = this.state;
     return (
       <>
         <div className="content">
           <Row>
-            <Col>
-            </Col>
+            <Col></Col>
           </Row>
           <Row>
             <Col md="2">
@@ -335,10 +350,12 @@ class User extends React.Component {
                           <label htmlFor="exampleInputEmail1">
                             Email address
                           </label>
-                          <Input type="email"
-                          name="email"
-                          value={email}
-                          onChange={this.handleInputChange} />
+                          <Input
+                            type="email"
+                            name="email"
+                            value={email}
+                            onChange={this.handleInputChange}
+                          />
                         </FormGroup>
                       </Col>
                     </Row>
@@ -347,11 +364,7 @@ class User extends React.Component {
                       <Col className="pr-1" md="4">
                         <FormGroup>
                           <label>Item</label>
-                          <Input
-                            disabled
-                            placeholder = "Clothing"
-                            type="text"
-                          />
+                          <Input disabled placeholder="Clothing" type="text" />
                         </FormGroup>
                       </Col>
                       <Col className="px-1" md="4">
@@ -367,13 +380,14 @@ class User extends React.Component {
                         </FormGroup>
                       </Col>
                       <Col className="pl-1" md="4">
-                        <FormGroup>                          
+                        <FormGroup>
                           <label>Number of items</label>
-                              <Input
-                              name="numberOfClothes"
-                              type="number"
-                              value={numberOfClothes}
-                              onChange={this.handleInputChange} />                          
+                          <Input
+                            name="numberOfClothes"
+                            type="number"
+                            value={numberOfClothes}
+                            onChange={this.handleInputChange}
+                          />
                         </FormGroup>
                       </Col>
                     </Row>
@@ -381,11 +395,7 @@ class User extends React.Component {
                       <Col className="pr-1" md="4">
                         <FormGroup>
                           <label>Item</label>
-                          <Input
-                            disabled
-                            placeholder = "Medicines"
-                            type="text"
-                          />
+                          <Input disabled placeholder="Medicines" type="text" />
                         </FormGroup>
                       </Col>
                       <Col className="px-1" md="4">
@@ -401,13 +411,14 @@ class User extends React.Component {
                         </FormGroup>
                       </Col>
                       <Col className="pl-1" md="4">
-                        <FormGroup>                          
+                        <FormGroup>
                           <label>Number of items</label>
-                              <Input
-                              name="numberOfMedicine"
-                              type="number"
-                              value={this.state.numberOfMedicine}
-                              onChange={this.handleInputChange} />                          
+                          <Input
+                            name="numberOfMedicine"
+                            type="number"
+                            value={this.state.numberOfMedicine}
+                            onChange={this.handleInputChange}
+                          />
                         </FormGroup>
                       </Col>
                     </Row>
@@ -415,11 +426,7 @@ class User extends React.Component {
                       <Col className="pr-1" md="4">
                         <FormGroup>
                           <label>Item</label>
-                          <Input
-                            disabled
-                            placeholder = "Food"
-                            type="text"
-                          />
+                          <Input disabled placeholder="Food" type="text" />
                         </FormGroup>
                       </Col>
                       <Col className="px-1" md="4">
@@ -435,13 +442,14 @@ class User extends React.Component {
                         </FormGroup>
                       </Col>
                       <Col className="pl-1" md="4">
-                        <FormGroup>                          
+                        <FormGroup>
                           <label>Number of items</label>
-                              <Input
-                              name="numberOfFood"
-                              type="number"
-                              value={this.state.numberOfFood}
-                              onChange={this.handleInputChange} />                          
+                          <Input
+                            name="numberOfFood"
+                            type="number"
+                            value={this.state.numberOfFood}
+                            onChange={this.handleInputChange}
+                          />
                         </FormGroup>
                       </Col>
                     </Row>
@@ -449,11 +457,7 @@ class User extends React.Component {
                       <Col className="pr-1" md="4">
                         <FormGroup>
                           <label>Item</label>
-                          <Input
-                            disabled
-                            placeholder = "Ohers"
-                            type="text"
-                          />
+                          <Input disabled placeholder="Ohers" type="text" />
                         </FormGroup>
                       </Col>
                       <Col className="px-1" md="4">
@@ -469,13 +473,14 @@ class User extends React.Component {
                         </FormGroup>
                       </Col>
                       <Col className="pl-1" md="4">
-                        <FormGroup>                          
+                        <FormGroup>
                           <label>Number of items</label>
-                              <Input
-                              name="numberOfOther"
-                              type="number"
-                              value={this.state.numberOfOther}
-                              onChange={this.handleInputChange} />                          
+                          <Input
+                            name="numberOfOther"
+                            type="number"
+                            value={this.state.numberOfOther}
+                            onChange={this.handleInputChange}
+                          />
                         </FormGroup>
                       </Col>
                     </Row>
@@ -485,7 +490,7 @@ class User extends React.Component {
                           className="btn-round"
                           color="primary"
                           type="submit"
-                          onClick = {this.submitDonation}
+                          onClick={this.submitDonation}
                         >
                           Submit
                         </Button>
@@ -499,20 +504,14 @@ class User extends React.Component {
           <Row>
             <Col md="3"></Col>
             <Col md="6">
-            <Card className="card-user">
-              <CardHeader>
-              <CardTitle tag="h5">Payment Donation</CardTitle>
-              </CardHeader>
-              <CardBody>
-              <a href="https://www.paypal.com/for-you/transfer-money/send-money">
-  <img src={require('./paypal.png')} />
-</a>
-              </CardBody>
-              <CardFooter>
-              
-              </CardFooter>
-              </Card></Col>
-
+              <Card className="card-user">
+                <CardHeader>
+                  <CardTitle tag="h5">Payment Donation</CardTitle>
+                </CardHeader>
+                <CardBody></CardBody>
+                <CardFooter></CardFooter>
+              </Card>
+            </Col>
           </Row>
         </div>
       </>

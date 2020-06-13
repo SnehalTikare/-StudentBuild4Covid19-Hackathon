@@ -21,7 +21,7 @@ import Notifications from "views/Notifications.jsx";
 import Icons from "views/Icons.jsx";
 import SeekHelp from "views/SeekHelp.jsx";
 import TableList from "views/Tables.jsx";
-import Volunteer from "views/Volunteer.jsx";
+import User from "views/User.jsx";
 import Donor from "views/Donor.jsx";
 import Admin1 from "views/Admin.jsx";
 import Home from "views/Home.jsx";
@@ -32,7 +32,7 @@ var routes = [
     name: "Home",
     icon: "nc-icon nc-bank",
     component: Home,
-    layout: "/admin"
+    layout: "/admin",
   },
   /* {
     path: "/dashboard",
@@ -49,11 +49,11 @@ var routes = [
     layout: "/admin"
   }, */
   {
-    path: "/volunteer",
-    name: "Volunteer",
+    path: "/user",
+    name: "User",
     icon: "nc-icon nc-single-02",
-    component: Volunteer,
-    layout: "/admin"
+    component: User,
+    layout: "/admin",
   },
   /* {
     path: "/notifications",
@@ -67,7 +67,7 @@ var routes = [
     name: "Donate",
     icon: "nc-icon nc-cart-simple",
     component: Donor,
-    layout: "/admin"
+    layout: "/admin",
   },
   /* {
     path: "/tables",
@@ -81,14 +81,14 @@ var routes = [
     name: "Seek Help",
     icon: "nc-icon nc-ambulance",
     component: SeekHelp,
-    layout: "/admin"
+    layout: "/admin",
   },
   {
     path: "/admin1",
     name: "Admin",
     icon: "nc-icon nc-circle-10",
     component: Admin1,
-    layout: "/admin"
-  }
+    layout: "/admin",
+  },
 ];
 export default routes;
