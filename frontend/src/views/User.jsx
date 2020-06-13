@@ -48,7 +48,7 @@ class User extends React.Component {
       email: "",
       address: "",
       gender: "",
-      age: 0,
+      age: "",
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -321,30 +321,6 @@ class User extends React.Component {
                 <ModalHeader toggle={this.toggle2}>User Login</ModalHeader>
                 <ModalBody>
                   <Form onSubmit={this.userLogin.bind(this)}>
-                    <Row>
-                      <Col className="pl-1" md="6" sm="12">
-                        <FormGroup>
-                          <label>First Name</label>
-                          <Input
-                            type="text"
-                            name="firstname"
-                            value={firstname}
-                            onChange={this.handleInputChange}
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col className="pl-1" md="6" sm="12">
-                        <FormGroup>
-                          <label>Last Name</label>
-                          <Input
-                            type="text"
-                            name="lastname"
-                            value={lastname}
-                            onChange={this.handleInputChange}
-                          />
-                        </FormGroup>
-                      </Col>
-                    </Row>
                     <Row>
                       <Col className="pl-1" md="6" sm="12">
                         <FormGroup>
