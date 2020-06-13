@@ -19,6 +19,7 @@ Login plus registration page
 
 import React from "react";
 import axios from "axios";
+import { usePosition } from "use-position";
 
 // reactstrap components
 import {
@@ -39,8 +40,15 @@ class User extends React.Component {
     this.state = {
       modal1: false,
       modal2: false,
-      useremail: "",
+      username: "",
       password: "",
+      firstname: "",
+      lastname: "",
+      contactNumber: "",
+      email: "",
+      address: "",
+      gender: "",
+      age: 0,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -84,7 +92,7 @@ class User extends React.Component {
       pwd: encodedPassword,
       role: "user",
     };
-
+    console.log(usePosition(true));
     console.log("data : ", data);
     //axios.defaults.withCredentials = true;
     axios
@@ -132,7 +140,7 @@ class User extends React.Component {
       })
       .then((response) => {
         console.log("response :", response);
-        if (response.status == 200) {
+        if (response.status === 200) {
           var mydata = response.data;
           console.log("ok response");
           console.log(mydata);
@@ -157,7 +165,17 @@ class User extends React.Component {
     });
   }
   render() {
-    const { useremail, username, password } = this.state;
+    const {
+      username,
+      password,
+      firstname,
+      lastname,
+      contactNumber,
+      email,
+      address,
+      gender,
+      age,
+    } = this.state;
     return (
       <>
         <div className="content">
@@ -180,11 +198,83 @@ class User extends React.Component {
                     <Row>
                       <Col className="pl-1" md="6" sm="12">
                         <FormGroup>
+                          <label>First Name</label>
+                          <Input
+                            type="text"
+                            name="firstname"
+                            value={firstname}
+                            onChange={this.handleInputChange}
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col className="pl-1" md="6" sm="12">
+                        <FormGroup>
+                          <label>Last Name</label>
+                          <Input
+                            type="text"
+                            name="lastname"
+                            value={lastname}
+                            onChange={this.handleInputChange}
+                          />
+                        </FormGroup>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col className="pl-1" md="6" sm="12">
+                        <FormGroup>
+                          <label>Email</label>
+                          <Input
+                            type="text"
+                            name="email"
+                            value={email}
+                            onChange={this.handleInputChange}
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col className="pl-1" md="6" sm="12">
+                        <FormGroup>
+                          <label>Contact Number</label>
+                          <Input
+                            type="text"
+                            name="contactNumber"
+                            value={contactNumber}
+                            onChange={this.handleInputChange}
+                          />
+                        </FormGroup>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col className="pl-1" md="6" sm="12">
+                        <FormGroup>
+                          <label>Gender</label>
+                          <Input
+                            type="text"
+                            name="gender"
+                            value={gender}
+                            onChange={this.handleInputChange}
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col className="pl-1" md="6" sm="12">
+                        <FormGroup>
+                          <label>Age</label>
+                          <Input
+                            type="text"
+                            name="age"
+                            value={age}
+                            onChange={this.handleInputChange}
+                          />
+                        </FormGroup>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col className="pl-1" md="6" sm="12">
+                        <FormGroup>
                           <label>User Email</label>
                           <Input
                             type="text"
-                            name="useremail"
-                            value={useremail}
+                            name="username"
+                            value={username}
                             onChange={this.handleInputChange}
                           />
                         </FormGroup>
@@ -234,10 +324,34 @@ class User extends React.Component {
                     <Row>
                       <Col className="pl-1" md="6" sm="12">
                         <FormGroup>
-                          <label>User Email</label>
+                          <label>First Name</label>
                           <Input
                             type="text"
-                            name="useremail"
+                            name="firstname"
+                            value={firstname}
+                            onChange={this.handleInputChange}
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col className="pl-1" md="6" sm="12">
+                        <FormGroup>
+                          <label>Last Name</label>
+                          <Input
+                            type="text"
+                            name="lastname"
+                            value={lastname}
+                            onChange={this.handleInputChange}
+                          />
+                        </FormGroup>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col className="pl-1" md="6" sm="12">
+                        <FormGroup>
+                          <label>User Name</label>
+                          <Input
+                            type="text"
+                            name="username"
                             value={username}
                             onChange={this.handleInputChange}
                           />
