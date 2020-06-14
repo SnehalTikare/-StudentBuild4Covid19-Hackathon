@@ -33,7 +33,8 @@ import {
   Row,
   Col,
 } from "reactstrap";
-
+var latitude = "";
+var longitude = "";
 class User extends React.Component {
   constructor(props) {
     super(props);
@@ -49,6 +50,9 @@ class User extends React.Component {
       address: "",
       gender: "",
       age: "",
+      latitude: "",
+      longitude: "",
+      count: 0,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -57,11 +61,32 @@ class User extends React.Component {
     this.toggle1 = this.toggle1.bind(this);
     this.toggle2 = this.toggle2.bind(this);
   }
+  componentDidMount() {
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0,
+    };
+
+    function success(pos) {
+      var crd = pos.coords;
+      console.log("Your current position is:");
+      latitude = pos.coords.latitude;
+      longitude = pos.coords.longitude;
+    }
+
+    function error(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  }
+
   toggle1() {
     this.setState({
       modal1: !this.state.modal1,
     });
   }
+
   toggle2() {
     this.setState({
       modal2: !this.state.modal2,
@@ -88,12 +113,21 @@ class User extends React.Component {
 
     var encodedPassword = btoa(this.state.password);
     var data = {
-      useremail: this.state.email,
+      username: this.state.username,
       pwd: encodedPassword,
       role: "user",
+      firstname: this.state.firstname,
+      lastname: this.state.lastname,
+      contactNumber: this.state.contactNumber,
+      email: this.state.email,
+      address: "",
+      gender: this.state.gender,
+      age: this.state.age,
+      latitude: latitude,
+      longitude: longitude,
     };
-    console.log(usePosition(true));
     console.log("data : ", data);
+
     //axios.defaults.withCredentials = true;
     axios
       .post("http://10.225.125.24:5000/register", data, {
@@ -173,6 +207,8 @@ class User extends React.Component {
       contactNumber,
       email,
       address,
+      latitude,
+      longitude,
       gender,
       age,
     } = this.state;

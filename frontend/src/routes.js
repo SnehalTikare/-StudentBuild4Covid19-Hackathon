@@ -25,7 +25,7 @@ import User from "views/User.jsx";
 import Donor from "views/Donor.jsx";
 import Admin1 from "views/Admin.jsx";
 import Home from "views/Home.jsx";
-import Maps from "views/MapsScreen.jsx"
+import Maps from "views/MapsScreen.jsx";
 
 var routes = [
   {
@@ -39,10 +39,9 @@ var routes = [
   {
     path: "/Maps",
     name: "Maps",
-    icon: "nc-icon nc-bank",
+    icon: "nc-icon nc-map-big",
     component: Maps,
-    layout: "/admin"
-
+    layout: "/admin",
   },
   /* {
     path: "/dashboard",
