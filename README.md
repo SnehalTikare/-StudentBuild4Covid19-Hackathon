@@ -8,8 +8,11 @@ Some of the users for the application are Volunteers, Distributors, and People i
 ## Technologies used
 
 Python django framework
+
 REST API
+
 HTML, CSS, Bootstrap
+
 SQLite
 
 ## Installation
