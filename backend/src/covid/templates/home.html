@@ -1,6 +1,9 @@
-{% extends "base.html" %}
+{# loads static tag #}
 
+{% extends "base.html" %}
+{% load static %}
 {% block content %}
+{% if user.is_authenticated %}
     <div class='container'>
         <div class='row'>
             <div class='col-xs-12 button-wrapper'>
@@ -21,12 +24,25 @@
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
+              <button class="btn btn-outline-info" >Assgin</button>
+              <button class="btn btn-outline-info" >Resolve</button><br>
               <a class="mr-2" href="#">{{ post.user }}</a>
               <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
             </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <h4><a class="article-title" href="#">{{ post.title }}</a></h4>
             <p class="article-content">{{ post.description }}</p>
           </div>
         </article>
     {% endfor %}
+    {% else  %}
+    <!-- Write your comments here -->
+    <div class="content-section">
+      <h3>Together we can!</h3>
+    <img src ="{% static 'covid/image.png' %}" alt = "Image not found"><br><br>
+     <h4>Please login to proceed</h4 >
+      <button class="btn btn-outline-info" onclick="location.href='{% url 'login' %}'">Login</button>
+      </div>
+    
+  {% endif %}
+
 {% endblock content %}

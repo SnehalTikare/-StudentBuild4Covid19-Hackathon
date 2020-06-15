@@ -11,6 +11,9 @@ from django.views.generic import CreateView
 #     template_name = 'covid/home/grocery.html'
 #     fields = ['title','description']
 
+def history(request):
+    return render(request,'request.html')
+
 def grocery(request):
     if request.method == 'POST':
         title = request.POST['title']

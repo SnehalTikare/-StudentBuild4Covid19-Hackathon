@@ -7,6 +7,11 @@ body {
   h1, h2, h3, h4, h5, h6 {
     color: #050505;
   }
+  h3 {
+    color: #000000;
+    font-family:  "Comic Sans MS", cursive, sans-serif;
+    font-size: 28px;
+}
   
   ul {
     margin: 0;

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Requests Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  margin: 0 auto; /* Center website */
+  max-width: 800px; /* Max width */
+  padding: 20px;
+}
+
+.heading {
+  font-size: 25px;
+  margin-right: 25px;
+}
+
+.fa {
+  font-size: 25px;
+}
+
+.checked {
+  color: orange;
+}
+
+/* Three column layout */
+.side {
+  float: left;
+  width: 15%;
+  margin-top:10px;
+}
+
+.middle {
+  margin-top:10px;
+  float: left;
+  width: 70%;
+}
+
+/* Place text to the right */
+.right {
+  text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+
+/* Individual bars */
+.bar-5 {width: 100%; height: 18px; background-color: #4CAF50;}
+.bar-4 {width: 0%; height: 18px; background-color: #2196F3;}
+.bar-3 {width: 0%; height: 18px; background-color: #00bcd4;}
+.bar-2 {width: 0%; height: 18px; background-color: #ff9800;}
+.bar-1 {width: 0%; height: 18px; background-color: #f44336;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+  .side, .middle {
+    width: 100%;
+  }
+  .right {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Requests Pool</h2>           
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Recipient Name</th>
+        <th>Recipient Address</th>
+        <th>Recipient Phone Number</th>
+		<th>Request Category</th>
+		<th>Request Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Anthony Moe</td>
+        <td>122 E Solaris Street, Sydney</td>
+		<td>xxx-xxx-999</td>
+		<td>Food</td>
+        <td>Order placed at ABC Store, West Baltimore Street, Sydney</td>
+      </tr>
+      <tr>
+        <td>Mary Dooley</td>
+        <td>98 Krypton Street, South Lake, Sydney</td>
+        <td>xxx-xxx-890</td>
+		<td>Medicine</td>
+        <td>Require Vitamin D injections.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <h2>Requests Assigned</h2>           
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Recipient Name</th>
+        <th>Recipient Address</th>
+        <th>Recipient Phone Number</th>
+		<th>Request Category</th>
+		<th>Request Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Rahul Kumar</td>
+        <td>200 WellSpring Park, North Lake, Sydney</td>
+        <td>998-123-870</td>
+		<td>Food</td>
+        <td>Need vegetables, spices and oil.</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <h2>Requests Resolved</h2>           
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Recipient Name</th>
+        <th>Recipient Address</th>
+        <th>Recipient Phone Number</th>
+		<th>Request Category</th>
+		<th>Request Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Safina Khan</td>
+        <td>76 Almeda Park, Sydney</td>
+        <td>xxx-xxx-770</td>
+		<td>Food</td>
+        <td>Order placed at ABC Store. Requesting for pickup.</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+<span class="heading">Recepient Rating</span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<p>5 average based on 1 review.</p>
+<hr style="border:3px solid #f1f1f1">
+
+<div class="row">
+  <div class="side">
+    <div>5 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-5"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>1</div>
+  </div>
+  <div class="side">
+    <div>4 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-4"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>0</div>
+  </div>
+  <div class="side">
+    <div>3 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-3"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>0</div>
+  </div>
+  <div class="side">
+    <div>2 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-2"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>0</div>
+  </div>
+  <div class="side">
+    <div>1 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-1"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>0</div>
+  </div>
+</div>
+</body>
+</html>
