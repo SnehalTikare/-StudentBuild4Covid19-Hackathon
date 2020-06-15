@@ -29,7 +29,7 @@ body {
   }
   
   .content-section {
-    background: #ffffff;
+    background: #ebe3e362;
     padding: 10px 20px;
     border: 1px solid #dddddd;
     border-radius: 3px;
@@ -37,7 +37,7 @@ body {
   }
   
   .article-title {
-    color: #444444;
+    color: #000000;
   }
   
   a.article-title:hover {
@@ -58,7 +58,7 @@ body {
   .article-metadata {
     padding-bottom: 1px;
     margin-bottom: 4px;
-    border-bottom: 1px solid #e3e3e3
+    border-bottom: 1px solid #e6dddd
   }
   
   .article-metadata a:hover {
