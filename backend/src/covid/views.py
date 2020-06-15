@@ -37,7 +37,7 @@ def registerView(request):
         if form.is_valid():
             messages.success(request,'Account created successfully')
             form.save()
-            return redirect('homepage')
+            return redirect('login')
             # first_name = form.cleaned_data['first_name']s
             # last_name = form.cleaned_data['last_name']
             # email = form.cleaned_data['email']
