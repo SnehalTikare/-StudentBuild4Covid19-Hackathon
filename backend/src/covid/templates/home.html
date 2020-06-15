@@ -1,5 +1,17 @@
 {% extends "base.html" %}
+
 {% block content %}
+    <div class='container'>
+        <div class='row'>
+            <div class='col-xs-12 button-wrapper'>
+                <form action='grocery' method='GET'>
+                    <button class="homebtn"><i class="fa fa-shopping-cart"></i></button>
+                </form>
+                <button class="homebtn"><i class='fas fa-ambulance'></i></button>
+              <button class="homebtn"><i class="fa fa-phone"></i></button><br><br>
+            </div>
+        </div>
+    </div>
     {%if messages %}
             {% for message in messages%}
             <div class="alert alert - {{message.tags}}"> {{message}}</div>

@@ -4,6 +4,22 @@ from .forms import RegisterForm
 from .models import Post
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
+from django.views.generic import CreateView
+
+# class PostCreateView(CreateView):
+#     model = Post
+#     template_name = 'covid/home/grocery.html'
+#     fields = ['title','description']
+
+def grocery(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        description = request.POST['description']
+        post = Post(title=title,description=description,user=request.user)
+        post.save()
+        messages.success(request,'Request created successfully')
+        return redirect('homepage')
+    return render(request,'grocery.html')
 
 def home(request):
     context ={

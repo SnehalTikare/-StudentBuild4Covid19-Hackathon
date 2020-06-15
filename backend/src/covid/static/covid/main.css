@@ -13,7 +13,7 @@ body {
   }
   
   .bg-steel {
-    background-color: #0688e6;
+    background-color: DodgerBlue;;
   }
   
   .site-header .navbar-nav .nav-link {
@@ -82,4 +82,20 @@ body {
   .account-heading {
     font-size: 2.5rem;
   }
+  .homebtn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right:25px;
+  }
   
+  /* Darker background on mouse-over */
+  .homebtn:hover {
+    background-color: RoyalBlue;
+  }
+  .button-wrapper .homebtn {
+    margin-bottom:20px;
+}
