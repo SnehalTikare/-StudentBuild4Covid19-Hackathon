@@ -1,10 +1,16 @@
-# -StudentBuild4Covid19-Hackathon
-#StudentBuild4Covid19-Hackathon Repository
+# StudentBuild4Covid19-Hackathon
 # Co-Relief
 
 Co-Relief is a platform to connect volunteers to recipients during COVID-19.
 Senior citizens are highly affected by the pandemic because of the challenges of mobility and loneliness too. The application would serve to provide emotional support and also provide resources to the recipients.
 Some of the users for the application are Volunteers, Distributors, and People in Need. Also, through geospatial locations provided by the users, providing requests, and asking for help is easier. This app will also provide support for local businesses affected by COVID-19 to grow.
+
+## Technologies used
+
+Python django framework
+REST API
+HTML, CSS, Bootstrap
+SQLite
 
 ## Installation
 
